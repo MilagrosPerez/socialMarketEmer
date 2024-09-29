@@ -1,0 +1,13 @@
+<div id="favorite">
+  <% if product.favorite %>
+    <%= link_to '💙',
+                favorite_path(product.id),
+                data: { turbo_method: :delete },
+                class: "inline-block bg-oscuro text-claro px-4 py-2 rounded-md font-inter font-semibold hover:bg-gray-700 transition-colors duration-300"  %>
+  <% else %>
+    <%= link_to '🤍',
+                favorites_path(product_id: product.id),
+                data: { turbo_method: :post },
+                class: "inline-block bg-oscuro text-claro px-4 py-2 rounded-md font-inter font-semibold hover:bg-gray-700 transition-colors duration-300" %>
+  <% end %>
+</div>

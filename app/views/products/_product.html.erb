@@ -1,0 +1,27 @@
+<div class="my-10 productCard
+    w-full mx-auto bg-claro
+    border border-gray-300 rounded-lg
+    shadow-lg hover:shadow-xl transition-shadow
+    duration-300">
+
+  <%= link_to product_path(product.id), 'data-turbo-frame': '_top' do %>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold text-black font-inter"><%= product.title %></h3>
+      <%= image_tag(product.photo.present? ? product.photo : 'bolsa.jpg', alt: product.title, class: "w-full h-48 object-cover rounded-lg mt-2")  %>
+    </div>
+  <% end %>
+
+  <div class="px-4 py-2 text-primary font-medium text-sm">
+    ARS$ <%= product.price %>
+  </div>
+
+  <div class="px-4 py-2 text-gray-700 font-inter">
+    <p class="text-sm"><%= product.description %></p>
+  </div>
+
+  <div class="px-4 py-4">
+    <%= link_to t('common.view_more_products', username: product.user.username),
+                user_path(product.user.username), 'data-turbo-frame': '_top',
+                class: "inline-block text-center w-full bg-oscuro text-claro py-2 rounded-md font-inter font-semibold hover:bg-gray-700 transition-colors duration-300" %>
+  </div>
+</div>

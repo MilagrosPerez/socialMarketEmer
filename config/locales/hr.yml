@@ -1,0 +1,100 @@
+hr:
+  app_name: 'SocialMarket'
+  meta_title: 'Kupite i prodajte proizvode iz druge ruke!'
+  activerecord:
+    models:
+      user: Korisnik
+      product: Proizvod
+      category: Kategorija
+    attributes:
+      user:
+        username: 'Korisničko ime'
+        password: 'Lozinka'
+        email: 'Email'
+      category:
+        name: 'Ime'
+      product:
+        title: 'Naslov'
+        description: 'Opis'
+        price: 'ARS$'
+        photo: 'Foto'
+        category_id: 'Kategorija'
+
+  common:
+    view_more_products: 'Pogledajte više proizvoda od %{username}'
+    not_found: 'Nije pronađeno :('
+    not_logged: 'Morate se prijaviti za nastavak'
+    back: 'Povratak'
+    confirm: 'Jeste li sigurni?'
+    not_authorized: 'Niste ovlašteni za ovu akciju'
+  shared:
+    header:
+      my_favorites: 'Favoriti'
+      category: 'Kategorije'
+      login: 'Prijavite se'
+      logout: 'Odjava'
+  categories:
+    edit:
+      title: 'Uredi kategoriju'
+      back: 'Povratak'
+    new:
+      title: 'Kreirajte novu kategoriju'
+      back: 'Povratak'
+    index:
+      title: 'Kategorije'
+      new: 'Dodajte jednu'
+    category:
+      edit: 'Uredi'
+      delete: 'Izbriši'
+    create:
+      created: 'Kategorija je uspješno kreirana'
+    update:
+      updated: 'Kategorija je uspješno ažurirana'
+    destroy:
+      destroyed: 'Kategorija je uspješno izbrisana'
+
+  authentication:
+    users:
+      new:
+        register: 'Krenimo!'
+      create:
+        created: 'Savršeno! Već ste registrirani!'
+    sessions:
+      new:
+        login: 'Prijavite se'
+        register: 'Kreirajte račun'
+      create:
+        created: 'Dobrodošli!'
+        failed: 'Neispravna prijava ili lozinka'
+      destroy:
+        destroyed: 'Vidimo se sljedeći put'
+
+  products:
+    form:
+      title: 'Ludak i njegov novac lako se razdvajaju!'
+    edit:
+      title: 'Uredi proizvod'
+    show:
+      title: 'Kupi ga!'
+      edit: 'Uredi'
+      delete: 'Izbriši'
+    index:
+      title: 'Proizvodi'
+      add: 'Prodaj jedan+'
+      all: 'Sve'
+      min_price: 'Od ARS$'
+      max_price: 'Do ARS$'
+      query_text: 'Što želite pretraživati?'
+      newest: 'Najnoviji prvo'
+      expensivest: 'Najskuplji prvo'
+      cheapest: 'Najjeftiniji prvo'
+    create:
+      created: 'Vaš proizvod je uspješno kreiran'
+    update:
+      updated: 'Vaš proizvod je uspješno ažuriran'
+    destroy:
+      destroyed: 'Vaš proizvod je uspješno izbrisan'
+
+  favorites:
+    index:
+      title: 'Evo vaših omiljenih proizvoda!'

@@ -1,0 +1,100 @@
+en:
+  app_name: 'SocialMarket'
+  meta_title: 'Buy and Sell Second-Hand Products!'
+  activerecord:
+    models:
+      user: User
+      product: Product
+      category: Category
+    attributes:
+      user:
+        username: 'Username'
+        password: 'Password'
+        email: 'Email'
+      category:
+        name: 'Name'
+      product:
+        title: 'Title'
+        description: 'Description'
+        price: 'ARS$'
+        photo: 'Photo'
+        category_id: 'Category'
+
+  common:
+    view_more_products: 'View more products from %{username}'
+    not_found: 'Not found :('
+    not_logged: 'You must log in to continue'
+    back: 'Back'
+    confirm: 'Are you sure?'
+    not_authorized: 'You are not authorized for this action'
+  shared:
+    header:
+      my_favorites: 'Favorites'
+      category: 'Categories'
+      login: 'Log In'
+      logout: 'Log Out'
+  categories:
+    edit:
+      title: 'Edit Category'
+      back: 'Back'
+    new:
+      title: 'Create a New Category'
+      back: 'Back'
+    index:
+      title: 'Categories'
+      new: 'Add One'
+    category:
+      edit: 'Edit'
+      delete: 'Delete'
+    create:
+      created: 'Category created successfully'
+    update:
+      updated: 'Category updated successfully'
+    destroy:
+      destroyed: 'Category deleted successfully'
+
+  authentication:
+    users:
+      new:
+        register: 'Let’s get started!'
+      create:
+        created: 'Perfect! You are registered!'
+    sessions:
+      new:
+        login: 'Log In'
+        register: 'Create an Account'
+      create:
+        created: 'Welcome!'
+        failed: 'Invalid login or password'
+      destroy:
+        destroyed: 'See you next time'
+
+  products:
+    form:
+      title: 'A fool and his money are easily parted!'
+    edit:
+      title: 'Edit Product'
+    show:
+      title: 'Buy It!'
+      edit: 'Edit'
+      delete: 'Delete'
+    index:
+      title: 'Products'
+      add: 'Sell One+'
+      all: 'All'
+      min_price: 'From ARS$'
+      max_price: 'Up to ARS$'
+      query_text: 'What would you like to search for?'
+      newest: 'Newest First'
+      expensivest: 'Most Expensive First'
+      cheapest: 'Cheapest First'
+    create:
+      created: 'Your product has been created successfully'
+    update:
+      updated: 'Your product has been updated successfully'
+    destroy:
+      destroyed: 'Your product has been deleted successfully'
+
+  favorites:
+    index:
+      title: 'Here are your favorite products!'

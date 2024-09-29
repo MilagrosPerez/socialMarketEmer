@@ -1,0 +1,55 @@
+<div class="product-container max-w-4xl mx-auto bg-claro border border-gray-300 rounded-lg shadow-lg p-6 flex-grow">
+  <!-- Título del producto -->
+  <h2 class="product-title text-2xl font-semibold text-oscuro mb-4 font-inter">
+    <%= t('.title') %> <%= @product.title %>
+  </h2>
+
+  <div class="flex flex-col md:flex-row">
+    <!-- Contenedor de la imagen del producto -->
+    <div class="product-image-container flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+      <%= image_tag(@product.photo, alt: @product.title, class: "w-80 h-auto object-cover rounded-lg shadow-sm") if @product.photo.present? %>
+    </div>
+
+    <!-- Descripción del producto -->
+    <div class="flex-grow product-description text-gray-700 text-base font-inter mb-4">
+      <%= @product.description %>
+      <!-- Precio del producto -->
+      <div class="product-price text-xl text-black font-bold mb-6">
+        ARS$ <%= @product.price %>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- Contenedor de botones en el mismo renglón -->
+  <div class="flex space-x-4 mb-4 items-center justify-between">
+    <div>
+    <!-- Link para ver más productos del usuario -->
+    <%= link_to t('common.view_more_products', username: @product.user.username),
+                user_path(@product.user.username),
+                class: "text-sm text-primary font-semibold underline hover:text-oscuro transition-colors duration-300" %>
+
+    <!-- Links de edición y eliminación (solo para el propietario) -->
+    <% if @product.owner? %>
+      <%= link_to t('.edit'), edit_product_path(@product.id), class: "text-sm text-primary hover:text-oscuro transition-colors duration-300 font-medium" %>
+      <%= link_to t('.delete'),
+                  product_path(@product),
+                  data: { turbo_confirm: t('common.confirm'), turbo_method: :delete },
+                  class: "text-sm text-red-600 hover:text-red-800 transition-colors duration-300 font-medium" %>
+    <% end %>
+    </div>
+    <div class="flex flex/row ">
+    <!-- Botón para volver atrás -->
+    <%= link_to products_path, class: "mr-5 inline-block bg-oscuro text-claro px-4 py-2 rounded-md font-inter font-semibold hover:bg-gray-700 transition-colors duration-300" do %>
+      <%= t('common.back') %>
+    <% end %>
+    <!-- Botón de favoritos -->
+
+      <%= render partial: 'favorite', locals: { product: @product} %>
+   </div>
+  </div>
+</div>

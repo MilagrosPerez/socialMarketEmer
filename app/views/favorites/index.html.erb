@@ -1,0 +1,7 @@
+<!-- Título principal -->
+<h2 class="text-xl font-semibold text-gray-700 mb-4">
+  <%= t('.title') %>
+</h2>
+
+<!-- Frame que carga productos favoritos -->
+<%= turbo_frame_tag :products, src: products_path(favorites: true), class: "w-full" %>

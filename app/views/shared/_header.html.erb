@@ -1,0 +1,67 @@
+<header class="bg-white text-claro p-4" id="header">
+  <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+    <!-- Brand / Logo -->
+    <div class="brand text-lg font-bold">
+      <%= link_to products_path do %>
+        <h1 class="text-4xl font-bold text-primary inline-block">
+          <%= t('app_name') %>
+          <%= image_tag 'favicon.ico', alt: t('app_name'), class: 'inline-block ml-2' %>
+        </h1>
+      <% end %>
+    </div>
+
+    <!-- Settings Links -->
+    <div class="settings flex flex-col md:flex-row md:space-x-4 items-center">
+      <% if !Current.user %>
+        <%= link_to new_session_path, class: "hover:underline text-primary mb-2 md:mb-0" do %>
+          <h3><%= t('.login') %></h3>
+        <% end %>
+      <% else %>
+        <%= link_to session_path(Current.user.id),
+                    data: { turbo_confirm: t('common.confirm'), turbo_method: :delete },
+                    class: "hover:underline text-primary mb-2 md:mb-0" do %>
+          <h3 class="text-primary"><%= t('.logout') %></h3>
+        <% end %>
+        <%= link_to favorites_path, class: "hover:underline mb-2 md:mb-0" do %>
+          <h3 class="text-primary"><%= t('.my_favorites') %></h3>
+        <% end %>
+      <% end %>
+
+      <% if Current.user&.admin? %>
+        <%= link_to categories_path, class: "hover:underline text-primary mb-2 md:mb-0" do %>
+          <h3><%= t('.category') %></h3>
+        <% end %>
+
+      <% end %>
+      <!-- Dropdown for language selection -->
+      <div class="relative">
+        <button class="dropbtn bg-primary text-white p-2 rounded-md mb-2 md:mb-0" onclick="toggleDropdown()">Idioma</button>
+        <div class="absolute bg-white text-black mt-2 py-2 rounded-md shadow-md hidden" id="language-dropdown">
+          <%= link_to 'Inglés: 🇬🇧', url_for(locale: 'en'), class: 'block px-4 py-2 hover:bg-tertiary hover:text-black' %>
+          <%= link_to 'Español: 🇪🇸', url_for(locale: 'es'), class: 'block px-4 py-2 hover:bg-tertiary hover:text-black' %>
+          <%= link_to 'Croata: 🇭🇷', url_for(locale: 'hr'), class: 'block px-4 py-2 hover:bg-tertiary hover:text-black' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+    function toggleDropdown() {
+        const dropdown = document.getElementById('language-dropdown');
+        dropdown.classList.toggle('hidden');
+    }
+
+    // Close dropdown if clicked outside
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            const dropdowns = document.getElementsByClassName("absolute");
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (!openDropdown.classList.contains('hidden')) {
+                    openDropdown.classList.add('hidden');
+                }
+            }
+        }
+    }
+</script>

@@ -1,0 +1,9 @@
+<h1 class="text-2xl font-bold text-gray-800 mb-6"><%= t('.title') %></h1>
+
+<!-- Renderizar el formulario de la categoría -->
+<%= render "form", category: @category %>
+
+<!-- Espaciado adicional y enlace de regreso -->
+<div class="mt-6">
+  <%= link_to t('.back'), categories_path, class: "text-primary hover:text-primary-dark underline" %>
+</div>
